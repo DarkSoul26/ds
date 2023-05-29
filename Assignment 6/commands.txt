@@ -1,0 +1,13 @@
+
+
+Terminal 1- > 
+
+javac *.java
+
+java Bully
+
+
+
+Terminal 2 ->
+
+java Ring 
