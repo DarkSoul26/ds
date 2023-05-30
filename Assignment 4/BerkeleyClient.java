@@ -1,5 +1,3 @@
-package Assignment4;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
@@ -21,8 +19,10 @@ public class BerkeleyClient {
                 long clientTime = System.currentTimeMillis();
                 System.out.println("clientTime at client " + i + " before sending: " + clientTime);
 
-                if (i == n) outputStream.writeLong(-1);
-                else outputStream.writeLong(clientTime);
+                if (i == n)
+                    outputStream.writeLong(-1);
+                else
+                    outputStream.writeLong(clientTime);
 
                 String acknowledgment = inputStream.readUTF();
                 System.out.println("acknowledgment for client " + i + " is: " + acknowledgment + "\n");

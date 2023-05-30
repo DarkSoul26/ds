@@ -5,6 +5,7 @@ import org.omg.CosNaming.*;
 import org.omg.CosNaming.NamingContextPackage.*;
 import org.omg.CORBA.*;
 import java.io.*;
+import java.util.Scanner;
 
 class ReverseClient {
 	public static void main(String args[]) {
@@ -17,8 +18,11 @@ class ReverseClient {
 			String name = "Reverse";
 			ReverseImpl = ReverseHelper.narrow(ncRef.resolve_str(name));
 			System.out.println("Enter String=");
-			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-			String str = br.readLine();
+			Scanner sc = new Scanner(System.in);
+			String str = sc.next();
+
+			// BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			// String str = br.readLine();
 			String tempStr = ReverseImpl.reverse_string(str);
 			System.out.println(tempStr);
 		} catch (Exception e) {

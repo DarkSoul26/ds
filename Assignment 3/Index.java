@@ -73,3 +73,9 @@ public class arrSum {
         MPI.Finalize();
     }
 }
+
+export MPJ_HOME=/home/disha/Downloads/mpj   (NOte paste your own pc address where MPI folder is present)
+
+javac -cp $MPJ_HOME/lib/mpj.jar Index.java   
+
+$MPJ_HOME/bin/mpjrun.sh -np 4 Index

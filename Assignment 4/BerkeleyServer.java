@@ -1,5 +1,3 @@
-package Assignment4;
-
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.ServerSocket;
@@ -24,17 +22,20 @@ public class BerkeleyServer {
                 DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
 
                 long clientTime = inputStream.readLong();
-                System.out.println("clientTime received at Server's end for client " + clientTimes.size() + " is: " + clientTime);
+                System.out.println(
+                        "clientTime received at Server's end for client " + clientTimes.size() + " is: " + clientTime);
 
-
-                if (clientTime == -1) flag = false;
-                else clientTimes.add(clientTime);
+                if (clientTime == -1)
+                    flag = false;
+                else
+                    clientTimes.add(clientTime);
 
                 outputStream.writeUTF(String.valueOf(new Date(clientTime)));
 
                 socket.close();
 
-                if (!flag) break;
+                if (!flag)
+                    break;
             }
 
             long sum = 0;
