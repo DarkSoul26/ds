@@ -10,7 +10,6 @@ public class Ring {
 		this.n = n;
 		this.inactive_count = 0;
 		this.process_state = new boolean[n];
-		//	State all processes as active		
 		for(int i = 0; i < n; i++) {
 			this.process_state[i] = true;
 		}
@@ -19,11 +18,6 @@ public class Ring {
 	}
 	
 	public void deactivate_process(int id) {
-		/*
-		 *	Input	:	Process ID
-		 *	Utility :	Deactivate process
-		 *	Output	:	None	
-		 */
 		 if(id > n || id < 0) {
 		 	System.out.println("Invalid ID");
 		 	return;
@@ -38,11 +32,6 @@ public class Ring {
 	}
 	
 	public void view_ring() {
-		/*
-		 *	Input	:	None
-		 *	Utility :	Display ring 
-		 *	Output	:	Console output
-		 */
 		 
 		 if(this.inactive_count == n) {
 		 	System.out.println("All members inactive...");
@@ -55,11 +44,6 @@ public class Ring {
 	}
 	
 	public void election(int id) {
-		/*
-		 *	Input	:	Initiator
-		 *	Utility :	Hold election process to select coordinator
-		 *	Output	:	Coordinator id
-		 */
 		 if(this.inactive_count == this.n) {
 		 	System.out.println("All members inactive...");
 		 	System.out.println("Aborting election process...");
@@ -70,7 +54,6 @@ public class Ring {
 		 int current_coordinator = id;	 
 		 int token = (id + 1) % n;
 		 System.out.println("\nElection initiator : " + (id + 1));
-		 //	Election algorithm
 		 while(token != id) {
 			System.out.println("Token at process " + (token + 1));
 			if(this.process_state[token]) {
